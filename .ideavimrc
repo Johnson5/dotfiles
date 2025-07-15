@@ -9,23 +9,20 @@ set linenumber
 set showmode
 set showcmd
 
+"" Search Settings
 set ignorecase
 set smartcase
 set incsearch
 set hlsearch
+noremap <ESC> :noh<CR><ESC>
 
 set visualbell
 
 " Use system clipboard
-set clipboard^=unnamed,unnamedplus
+set clipboard+=unnamed
 
 let mapleader = " "
 
-" jump between angle brackets
-set matchpairs+=<:>
-
-" smart line joining
-set ideajoin
 
 "" Plugin Settings
 "" ========================================================
@@ -41,9 +38,6 @@ set notimeout
 
 " Which-key settings
 set which-key
-
-" make the popup show up 'instantly'
-let g:WhichKey_DefaultDelay = 0
 let g:WhichKey_FontSize = 13
 let g:WhichKey_FontFamily = "Jetbrains Mono"
 let g:WhichKey_CommandColor = "#41ead4"
@@ -69,6 +63,7 @@ let g:WhichKeyDesc_window_split_vertically = "<leader>wv Split vertically"
 let g:WhichKeyDesc_window_split_horizontally = "<leader>wh Split horizontally"
 let g:WhichKeyDesc_window_split_unsplit = "<leader>wu Unsplit"
 let g:WhichKeyDesc_window_split_move_editor = "<leader>wm Move editor to opposite tab group"
+
 
 let g:WhichKeyDesc_display = "<leader>d Display options"
 let g:WhichKeyDesc_zen_mode = "<leader>dz Toggle Zen mode"
@@ -104,6 +99,11 @@ let g:WhichKeyDesc_goto_usages = "<leader>gu Go to Usages"
 let g:WhichKeyDesc_goto_test = "<leader>gt Go to Test"
 let g:WhichKeyDesc_goto_back = "<leader>gb Go Back"
 let g:WhichKeyDesc_goto_forward = "<leader>gf Go Forward"
+
+let g:WhichKeyDesc_git = "<leader>g Git operations"
+let g:WhichKeyDesc_git_commit = "<leader>gc Open Git commit dialog"
+let g:WhichKeyDesc_git_status = "<leader>gs Open Git status dialog"
+let g:WhichKeyDesc_git_branches = "<leader>gb Open Git branches list"
 
 let g:WhichKeyDesc_errors = "<leader>e Error navigation"
 let g:WhichKeyDesc_errors_next = "<leader>en Go to next error in solution"
@@ -153,13 +153,12 @@ nnoremap caw "_caw
 nnoremap C "_C
 nnoremap cc "_cc
 nnoremap Y y$
-noremap U <C-r>
-
-" Comment lines
-nnoremap gc <action>(CommentByLineComment)
 
 "" Leader commands
 "" ========================================================
+
+" Comment lines
+map <leader>c <action>(CommentByLineComment)
 
 " Jump around with easymotion
 map <leader>j <Plug>(easymotion-s)
@@ -214,9 +213,11 @@ nmap <leader>gt <Action>(GotoTest)
 nmap <leader>gf <Action>(Back)
 nmap <leader>gb <Action>(Forward)
 
-" Show hover info
-map <leader>sh <Action>(ShowHoverInfo)
+" Git windows
+map <leader>gc <Action>(CheckinProject)
+map <leader>gs <Action>(ActivateVersionControlToolWindow)
+map <leader>gb <Action>(Git.Branches)
 
 " Errors
-map <leader>en <Action>(GotoNextError)
-map <leader>ep <Action>(GotoPreviousError)
+map <leader>en <Action>(ReSharperGotoNextErrorInSolution)
+map <leader>ep <Action>(ReSharperGotoPrevErrorInSolution)
