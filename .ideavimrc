@@ -9,10 +9,12 @@ set linenumber
 set showmode
 set showcmd
 
+""t Search Settings
 set ignorecase
 set smartcase
 set incsearch
 set hlsearch
+noremap <ESC> :noh<CR><ESC>
 
 set visualbell
 
@@ -26,6 +28,7 @@ set matchpairs+=<:>
 
 " smart line joining
 set ideajoin
+
 
 "" Plugin Settings
 "" ========================================================
@@ -44,6 +47,7 @@ set which-key
 
 " make the popup show up 'instantly'
 let g:WhichKey_DefaultDelay = 0
+
 let g:WhichKey_FontSize = 13
 let g:WhichKey_FontFamily = "Jetbrains Mono"
 let g:WhichKey_CommandColor = "#41ead4"
@@ -69,6 +73,7 @@ let g:WhichKeyDesc_window_split_vertically = "<leader>wv Split vertically"
 let g:WhichKeyDesc_window_split_horizontally = "<leader>wh Split horizontally"
 let g:WhichKeyDesc_window_split_unsplit = "<leader>wu Unsplit"
 let g:WhichKeyDesc_window_split_move_editor = "<leader>wm Move editor to opposite tab group"
+
 
 let g:WhichKeyDesc_display = "<leader>d Display options"
 let g:WhichKeyDesc_zen_mode = "<leader>dz Toggle Zen mode"
