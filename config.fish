@@ -9,3 +9,9 @@ if status --is-interactive
     and type -q fastfetch
     fastfetch
 end
+
+function cpwd --description "Copy current working directory to clipboard"
+    set current_path (pwd)
+    echo $current_path | wl-copy
+    echo "Path copied to clipboard: $current_path"
+end
