@@ -1,0 +1,249 @@
+"" ========================================================
+"" Base Settings
+"" ========================================================
+
+set scrolloff=10
+set linenumber
+set showmode
+set showcmd
+
+set ignorecase
+set smartcase
+set incsearch
+set hlsearch
+noremap <ESC> :noh<CR><ESC>
+
+set visualbell
+set clipboard^=unnamed,unnamedplus
+
+let mapleader = " "
+
+set matchpairs+=<:>
+set ideajoin
+
+"" Plugin Settings
+"" ========================================================
+
+set surround
+set highlightedyank
+set sneak
+set nerdtree
+set easymotion
+set notimeout
+set peekaboo
+
+" Which-key
+set which-key
+let g:WhichKey_DefaultDelay = 0
+let g:WhichKey_FontSize = 13
+let g:WhichKey_FontFamily = "Jetbrains Mono"
+let g:WhichKey_CommandColor = "#41ead4"
+let g:WhichKey_PrefixColor = "#41ea79"
+let g:WhichKey_SortOrder = "by_key_prefix_first"
+
+"" ========================================================
+"" KEY MAPPINGS
+"" ========================================================
+
+" Tab navigation
+nnoremap <C-l> :tabnext<CR>
+nnoremap <C-h> :tabprev<CR>
+
+
+" Pane navigation
+nnoremap <A-h> <C-w>h
+nnoremap <A-l> <C-w>l
+nnoremap <A-k> <C-w>k
+nnoremap <A-j> <C-w>j
+
+
+" Method navigation
+nnoremap [[ <Action>(MethodUp)
+nnoremap ]] <Action>(MethodDown)
+
+
+" Easy visual indentation
+vnoremap < <gv
+vnoremap > >gv
+
+
+" Execute macro in register q
+nnoremap qj @q
+
+
+" Popup navigation
+inoremap <C-j> <Action>(PopupMenu-selectNext)
+inoremap <C-k> <Action>(PopupMenu-selectPrev)
+
+
+" Motions
+nnoremap H ^
+nnoremap L $
+nnoremap W [w
+nnoremap B [b
+nnoremap E ]w
+
+
+" Smart editing
+nnoremap ciw "_ciw
+nnoremap caw "_caw
+nnoremap C "_C
+nnoremap cc "_cc
+nnoremap Y y$
+noremap U <C-r>
+
+
+" Comment line
+nnoremap gc <action>(CommentByLineComment)
+let g:WhichKeyDesc_comment = "gc Comment line"
+
+
+"" ========================================================
+"" LEADER MAPPINGS  (with which-key descriptions directly under each)
+"" ========================================================
+
+" EasyMotion Jump
+nmap <leader>j <Plug>(easymotion-s)
+let g:WhichKeyDesc_easymotion = "<leader>j Jump with Easymotion"
+
+" NERDTree
+map <leader>x :NERDTreeToggle<CR>
+let g:WhichKeyDesc_file_explorer = "<leader>x Open file explorer"
+
+
+" -------- Folding --------
+map <leader>za :action ExpandCollapseToggleAction<CR>
+let g:WhichKeyDesc_fold_toggle = "<leader>za Toggle fold"
+
+map <leader>zc :action CollapseAllRegions<CR>
+let g:WhichKeyDesc_fold_all = "<leader>zc Fold all regions"
+
+map <leader>zo :action ExpandAllRegions<CR>
+let g:WhichKeyDesc_unfold_all = "<leader>zo Unfold all regions"
+
+let g:WhichKeyDesc_fold = "<leader>z Folding"
+
+
+" -------- Window splits --------
+map <leader>wv <Action>(SplitVertically)
+let g:WhichKeyDesc_window_split_vertically = "<leader>wv Split vertically"
+
+map <leader>ws <Action>(SplitHorizontally)
+let g:WhichKeyDesc_window_split_horizontally = "<leader>ws Split horizontally"
+
+map <leader>wu <Action>(Unsplit)
+let g:WhichKeyDesc_window_unsplit = "<leader>wu Unsplit"
+
+map <leader>wm <Action>(MoveEditorToOppositeTabGroup)
+let g:WhichKeyDesc_window_move_editor = "<leader>wm Move editor to opposite tab group"
+
+let g:WhichKeyDesc_window = "<leader>w Window splits"
+
+
+" -------- Display Options --------
+map <leader>dd <action>(ToggleDistractionFreeMode)
+let g:WhichKeyDesc_df_mode = "<leader>dd Toggle Distraction-Free mode"
+
+map <leader>dz <action>(ToggleZenMode)
+let g:WhichKeyDesc_zen_mode = "<leader>dz Toggle Zen mode"
+
+map <leader>df <action>(ToggleFullScreen)
+let g:WhichKeyDesc_fullscreen = "<leader>df Toggle full screen"
+
+let g:WhichKeyDesc_display = "<leader>d Display options"
+
+
+" -------- Actions --------
+map <leader>am <action>(ShowIntentionActions)
+let g:WhichKeyDesc_action_context_menu = "<leader>am Open context menu"
+
+map <leader>as <action>(SearchEverywhere)
+let g:WhichKeyDesc_action_search = "<leader>as Open command modal"
+
+let g:WhichKeyDesc_action = "<leader>a Actions"
+
+
+" -------- File Navigation --------
+map <leader>ff <action>(GotoFile)
+let g:WhichKeyDesc_file_nav_goto_file = "<leader>ff Go to file"
+
+map <leader>fc <action>(FindInPath)
+let g:WhichKeyDesc_file_nav_goto_content = "<leader>fc Search for file content"
+
+map <leader>fr <action>(RecentFiles)
+let g:WhichKeyDesc_file_nav_show_recent_files = "<leader>fr Show recent files"
+
+map <leader>fl <action>(RecentLocations)
+let g:WhichKeyDesc_file_nav_show_recent_locations = "<leader>fl Show recent locations"
+
+map <leader>fs <action>(NewScratchFile)
+let g:WhichKeyDesc_file_nav_scratch = "<leader>fs New scratch file"
+
+let g:WhichKeyDesc_file_nav = "<leader>f File navigation"
+
+
+" Close tab
+map <leader>q <action>(CloseContent)
+let g:WhichKeyDesc_close_tab = "<leader>q Close active tab"
+
+
+" -------- Refactoring --------
+map <leader>rn <Action>(RenameElement)
+let g:WhichKeyDesc_refactoring_rename = "<leader>rn Rename element"
+
+map <leader>rm <Action>(ExtractMethod)
+let g:WhichKeyDesc_refactoring_method = "<leader>rm Extract method"
+
+map <leader>rv <Action>(IntroduceVariable)
+let g:WhichKeyDesc_refactoring_variable = "<leader>rv Introduce variable"
+
+map <leader>rf <Action>(IntroduceField)
+let g:WhichKeyDesc_refactoring_field = "<leader>rf Introduce field"
+
+map <leader>rs <Action>(ChangeSignature)
+let g:WhichKeyDesc_refactoring_signature = "<leader>rs Change signature"
+
+map <leader>rr <Action>(Refactorings.QuickListPopupAction)
+let g:WhichKeyDesc_refactoring_all = "<leader>rr Open refactorings list"
+
+let g:WhichKeyDesc_refactoring = "<leader>r Refactoring menu"
+
+
+" -------- Go To --------
+nmap <leader>gd <Action>(GotoDeclaration)
+let g:WhichKeyDesc_goto_declaration = "<leader>gd Go to definition"
+
+nmap <leader>gy <Action>(GotoTypeDeclaration)
+let g:WhichKeyDesc_goto_type_declaration = "<leader>gy Go to type definition"
+
+nmap <leader>gi <Action>(GotoImplementation)
+let g:WhichKeyDesc_goto_implementation = "<leader>gi Go to implementation"
+
+nmap <leader>gu <Action>(ShowUsages)
+let g:WhichKeyDesc_goto_usages = "<leader>gu Go to usages"
+
+nmap <leader>gt <Action>(GotoTest)
+let g:WhichKeyDesc_goto_test = "<leader>gt Go to test"
+
+nmap <leader>gb <Action>(Back)
+let g:WhichKeyDesc_goto_back = "<leader>gb Go back"
+
+nmap <leader>gf <Action>(Forward)
+let g:WhichKeyDesc_goto_forward = "<leader>gf Go forward"
+
+let g:WhichKeyDesc_goto = "<leader>g Go to…"
+
+
+" Hover info
+map <leader>sh <Action>(ShowHoverInfo)
+let g:WhichKeyDesc_show_hover = "<leader>sh Show hover info"
+
+
+" -------- Errors --------
+map <leader>en <Action>(GotoNextError)
+let g:WhichKeyDesc_errors_next = "<leader>en Go to next error"
+
+map <leader>ep <Action>(GotoPreviousError)
+let g:WhichKeyDesc_errors_prev = "<leader>ep Go to previous error"
+
+let g:WhichKeyDesc_errors = "<leader>e Error navigation"
