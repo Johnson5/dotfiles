@@ -9,9 +9,6 @@ starship init fish | source
 # Use zoxide
 zoxide init fish --cmd cd | source
 
-# Use fzf
-fzf --fish | source
-
 # Call fastfetch to display system info
 if status --is-interactive
     and type -q fastfetch
