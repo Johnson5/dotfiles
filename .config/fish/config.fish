@@ -1,6 +1,8 @@
 # Disable default Fish greeting
 set -g fish_greeting ""
 
+set -x JAVA_HOME "/Users/jan.lobee/Applications/Android Studio.app/Contents/jbr/Contents/Home"
+
 # Set starship theme
 starship init fish | source
 
