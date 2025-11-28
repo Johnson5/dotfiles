@@ -7,6 +7,12 @@ starship init fish | source
 # Use zoxide
 zoxide init fish --cmd cd | source
 
+alias ls='lsd'
+alias l='ls -l'
+alias la='ls -a'
+alias lla='ls -la'
+alias lt='ls --tree'
+
 # Call fastfetch to display system info
 if status --is-interactive
     and type -q fastfetch
