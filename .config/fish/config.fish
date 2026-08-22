@@ -7,7 +7,7 @@ set -x JAVA_HOME "/Users/jan.lobee/Applications/Android Studio.app/Contents/jbr/
 starship init fish | source
 
 # Use zoxide
-zoxide init fish --cmd cd | source
+zoxide init fish --cmd z | source
 
 alias ls='lsd'
 alias l='ls -l'
