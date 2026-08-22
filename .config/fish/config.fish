@@ -7,13 +7,19 @@ set -x JAVA_HOME "/Users/jan.lobee/Applications/Android Studio.app/Contents/jbr/
 starship init fish | source
 
 # Use zoxide
-zoxide init fish --cmd z | source
+zoxide init fish --cmd cd | source
 
 alias ls='lsd'
 alias l='ls -l'
 alias la='ls -a'
 alias lla='ls -la'
 alias lt='ls --tree'
+
+if status is-interactive
+    and not set -q TMUX
+    and command -v tmux >/dev/null
+    tmux attach -t main; or tmux new -s main
+end
 
 function cpwd --description "Copy current working directory to clipboard"
     set current_path (pwd)
