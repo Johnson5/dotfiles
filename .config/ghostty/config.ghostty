@@ -1,0 +1,30 @@
+# ── Shell ──────────────────────────────────────────────
+# command = /opt/homebrew/bin/fish
+
+# ── Appearance ─────────────────────────────────────────
+theme = Catppuccin Mocha
+background-opacity = 1.0
+macos-titlebar-style = hidden
+window-padding-x = 10
+window-padding-y = 10
+window-padding-balance = true
+
+# ── Font ───────────────────────────────────────────────
+font-family = JetBrains Mono
+font-size = 14
+
+# ── Cursor ─────────────────────────────────────────────
+cursor-style = block
+cursor-style-blink = false
+
+# ── Window behavior ────────────────────────────────────
+window-save-state = always
+confirm-close-surface = false
+mouse-hide-while-typing = true
+
+# ── Scrollback ─────────────────────────────────────────
+scrollback-limit = 10000
+
+# ── Shell integration ----------------------------------
+shell-integration = fish
+shell-integration-features = cursor,sudo,title

@@ -15,12 +15,6 @@ alias la='ls -a'
 alias lla='ls -la'
 alias lt='ls --tree'
 
-# Call fastfetch to display system info
-if status --is-interactive
-    and type -q fastfetch
-    fastfetch
-end
-
 function cpwd --description "Copy current working directory to clipboard"
     set current_path (pwd)
     echo $current_path | wl-copy
