@@ -146,9 +146,7 @@ on-mode-changed = []
     alt-b = 'workspace B'
     alt-c = 'workspace C'
     alt-d = 'workspace D'
-    alt-e = 'workspace E'
     alt-g = 'workspace G'
-    alt-i = 'workspace I'
     alt-m = 'workspace M'
     alt-n = 'workspace N'
     alt-o = 'workspace O'
@@ -157,7 +155,6 @@ on-mode-changed = []
     alt-r = 'workspace R'
     alt-s = 'workspace S'
     alt-t = 'workspace T'
-    alt-u = 'workspace U'
     alt-v = 'workspace V'
     alt-w = 'workspace W'
     alt-x = 'workspace X'
@@ -228,7 +225,15 @@ on-mode-changed = []
     run = 'layout floating'
 
 [[on-window-detected]]
+    if.app-id = 'com.apple.Music'
+    run = 'layout floating'
+
+[[on-window-detected]]
     if.app-id = 'com.apple.finder'
+    run = 'layout floating'
+
+[[on-window-detected]]
+    if.app-id = 'com.todoist.mac.Todoist'
     run = 'layout floating'
 
 [[on-window-detected]]
